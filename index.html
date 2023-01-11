@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGITAL-CLOCK</title>
+    <link rel="stylesheet" href="bootstrap-5.2.1-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/cl.css">
+</head>
+<style>
+     *
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+</style>
+<body>
+        <section>
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="container-lg ">
+                        <h1 class="py-5 text-center shadow-lg bg-warning text-white rounded">Merry Christmas</h1>
+                       
+                        <h2 class="py-5 text-center shadow-lg bg-danger text-white rounded">Comming Soon</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <div class="container  d-flex align-item-center justify-content-evenly flex-wrap mt-5">
+                        <div class="box1  mb-2 shadow-lg bg-white rounded ">
+                            <h1 class="m-5 " id="days">0</h1>
+                            <h6 class="text-center text-danger">Days</h6>
+                        </div>
+                        
+                        <div class="box1  mb-2 shadow-lg bg-white rounded ">
+                            <h1 class="m-5" id="hours">0</h1>
+                           <h6 class="text-center text-danger">Hours</h6>
+                        </div>
+                        <div class="box1  mb-2 shadow-lg bg-white  rounded ">
+                            <h1 class="m-5" id="minutes">0</h1>
+                            <h6 class="text-center text-danger">Minutes</h6>
+                        </div>
+                        <div class="box1  mb-2 shadow-lg bg-white rounded">
+                            <h1 class="m-5" id="seconds">0</h1>
+                            <h6 class="text-center text-danger">Second</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+     <script>
+       
+         setInterval(() => {
+             let date=new Date();
+         let a= date.toLocaleTimeString();
+         document.getElementById("time").innerHTML= a;
+         }, 1000);
+        var countd= new Date("dec 25,2022 00:00:00:").getTime();
+        var x = setInterval(()=>{
+            var now = new Date().getTime();
+            var distance = countd-now;
+            var days = Math.floor(distance / (1000*60*60*24));
+            var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+            var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+            var seconds = Math.floor((distance % (1000*60))/(1000));
+            document.getElementById("days").innerHTML=days;
+            document.getElementById("hours").innerHTML=hours;
+            document.getElementById("minutes").innerHTML=minutes;
+            document.getElementById("seconds").innerHTML=seconds;
+            if(distance<0)
+            {
+                document.getElementById("days").innerHTML="00";
+            document.getElementById("hours").innerHTML="00";
+            document.getElementById("minutes").innerHTML="00";
+            document.getElementById("seconds").innerHTML="00";
+            }
+        }, 1000);
+
+    </script>
+</body>
+</html>
